@@ -1,3 +1,54 @@
-<p>
-  header-redirect works!
-</p>
+<md-card class="user-dtls">
+  <md-card-header>
+
+  </md-card-header>
+  <md-card-content>
+    <table class="extend-full-width">
+      <tr>
+        <td>
+          <md-input-container class="extend-full-width">
+            <input [disabled]="save" mdInput placeholder="First name" #fname>
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container class="extend-full-width">
+            <input [disabled]="save" mdInput placeholder="Last name" #lname>
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-input-container class="extend-full-width">
+            <input [disabled]="save" mdInput placeholder="Email">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container class="extend-full-width">
+            <input [disabled]="save" mdInput placeholder="Mobile no">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="admin">Is Admin user?</label>
+          <md-radio-group id="admin">
+            <md-radio-button name="admin" disabled="true" checked="true" color="primary" value="1">Yes</md-radio-button>
+            <md-radio-button name="admin" disabled="true" value="2">No</md-radio-button>
+          </md-radio-group>
+        </td>
+        <td>
+          <md-input-container class="reminder" >
+            <input mdInput [mdDatepicker]="remind" placeholder="Choose date of birth..." #dated>
+            <a mdSuffix class="clear" *ngIf="!dated.disabled && dated.value.length>0" (click)="clearDate(dated)"><md-icon>clear</md-icon></a>
+            <button [disabled]="save" mdSuffix [mdDatepickerToggle]="remind"></button>
+            <md-datepicker #remind></md-datepicker>
+          </md-input-container>
+        </td>
+      </tr>
+    </table>
+  </md-card-content>
+  <md-card-actions>
+    <button md-raised-button color="primary" (click)="saveData(lname.value+','+fname.value)">save</button>
+    <button md-button color="warning">cancel</button>
+  </md-card-actions>
+</md-card>

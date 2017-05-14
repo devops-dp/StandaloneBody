@@ -1,8 +1,9 @@
 <stand-header (navigator)="getItDone($event)">
 </stand-header>
 <div class="container">
-  <h1>
-    {{title}}
+  <h1 style="text-align: center">
+    Welcome
   </h1>
+  <span *ngIf="srchTxt.length>0">{{'You searched for "'+srchTxt+'"'}}</span>
   <router-outlet></router-outlet>
 </div>

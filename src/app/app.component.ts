@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'app works!';
+  srchTxt:string = "";
   constructor(private router: Router){
 
   }
-  @HostListener('window:test', ['$event'])
+  @HostListener('window:srch', ['$event'])
     testListener(event) {
-      console.log(event.detail);
-      this.title = event.detail.title;
+      console.log(event.detail.data);
+      this.srchTxt = event.detail.data;
     }
 
   getItDone(s: string){

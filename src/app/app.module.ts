@@ -8,7 +8,10 @@ import { AppComponent } from './app.component';
 import { SharedService } from './app.shared.service';
 import { HeaderRedirectComponent } from './header-redirect/header-redirect.component';
 import { DefaultRedirectComponent } from './default-redirect/default-redirect.component';
-import { HeaderEventListener } from './header-event-listener'
+import { HeaderEventListener } from './header-event-listener';
+import { MaterialSpecifics } from './material-specifics';
+import { NativeDateAdapter, DateAdapter,
+         MdNativeDateModule } from '@angular/material';
 const appRoutes: Routes = [
   { path: 'header', component: HeaderRedirectComponent },
   { path: 'home', component: DefaultRedirectComponent},
@@ -29,11 +32,14 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MaterialSpecifics,
+    MdNativeDateModule
   ],
   providers: [
     {provide: 'shared', useClass: SharedService},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: DateAdapter, useClass: NativeDateAdapter},
     HeaderEventListener
   ],
   bootstrap: [AppComponent],
