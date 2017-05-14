@@ -7,8 +7,25 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <app-root>Loading...</app-root>
 </body>
+<script type="text/javascript" src="http://localhost:4200/inline.bundle.js?appKey=privatekey"></script>
+<script type="text/javascript" src="http://localhost:4200/styles.bundle.js?appKey=privatekey"></script>
+<script type="text/javascript" src="http://localhost:4200/vendor.bundle.js?appKey=privatekey"></script>
+<script type="text/javascript" src="http://localhost:4200/main.bundle.js?appKey=privatekey"></script>
+<!--
+  <script type="text/javascript">
+    var text = '{"url":"http://localhost:4200", "names" : ["inline.bundle.js","polyfills.bundle.js","styles.bundle.js","vendor.bundle.js","main.bundle.js"]}';
+    var files = JSON.parse(text);
+    for(var i=0; i < files.names.length; i++){
+      var script = document.createElement('script');
+      script.setAttribute('type','text/javascript');
+      script.setAttribute('src',files.url+'/'+files.names[i]);
+      document.head.appendChild(script);
+    }
+  </script>
+-->
 </html>
